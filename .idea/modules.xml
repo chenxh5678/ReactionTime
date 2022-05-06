@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ReactionTime.iml" filepath="$PROJECT_DIR$/.idea/modules/ReactionTime.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ReactionTime.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ReactionTime.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/javaProject.ReactionTime.iml" filepath="$PROJECT_DIR$/.idea/modules/javaProject.ReactionTime.iml" />
     </modules>
   </component>
 </project>

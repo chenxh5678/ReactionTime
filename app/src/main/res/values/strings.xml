@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">反应时间</string>
+    <string name="app_name">测试反应时间</string>
     <drawable name="clr_normal">#4E77F5</drawable>
     <drawable name="clr_pressed">#8499DD</drawable>
     <drawable name="clr_set">#F74160</drawable>

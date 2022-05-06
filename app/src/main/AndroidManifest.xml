@@ -4,13 +4,19 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Reaction2">
         <activity
-            android:name="com.example.ReactionTime.MainActivity"
+            android:name=".Privacy"
+            android:exported="false" />
+        <activity
+            android:name=".user"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

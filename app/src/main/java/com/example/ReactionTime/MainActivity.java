@@ -2,6 +2,7 @@ package com.example.ReactionTime;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -38,9 +39,10 @@ public class MainActivity extends Activity {
 
         // 重置按钮
         btn2.setOnClickListener(view -> {
+            Text1.setText("反应时间：0秒");
             best = 0;
             count = 0;
-            Text2.setText("最佳：" + best + "\n" + "次数：" + count);
+            Text2.setText("最佳：0\n次数：0");
         });
 
     }
@@ -66,19 +68,22 @@ public class MainActivity extends Activity {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if(view.getId()==R.id.button1){
                 if(motionEvent.getAction()==MotionEvent.ACTION_UP){
+                    timer.cancel();
                     count++;
                     if (key == 1){
                         double end = System.currentTimeMillis();  //获取结束时间
                         double reaction = (end - start)/1000;  //反应时间
-                        Text1.setText("反应时间：" + reaction + "秒");
-                        timer.cancel();
-                        if (best == 0){
-                            best = reaction;
-                        }else if(best > reaction){
-                            best = reaction;
+                        if (reaction >= 0.1){
+                            Text1.setText("反应时间：" + reaction + "秒");
+                            if (best == 0){
+                                best = reaction;
+                            }else if(best > reaction){
+                                best = reaction;
+                            }
+                        }else{
+                            Text1.setText("反应时间：犯规");
                         }
                     }else{
-                        timer.cancel();
                         Text1.setText("反应时间：犯规");
                     }
                     Text2.setText("最佳：" + best + "\n" + "次数：" + count);
@@ -119,5 +124,13 @@ public class MainActivity extends Activity {
         sp.play(id,0.1f,0.5f,0,0,1);
     }
 
+    public void btnUser(View v){
+        Intent intent = new Intent(this, user.class);
+        startActivity(intent);
+    }
 
+    public void btnPrivacy(View v){
+        Intent intent = new Intent(this, Privacy.class);
+        startActivity(intent);
+    }
 }
