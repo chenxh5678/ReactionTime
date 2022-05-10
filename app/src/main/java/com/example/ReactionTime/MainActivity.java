@@ -67,7 +67,10 @@ public class MainActivity extends Activity {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if(view.getId()==R.id.button1){
-                if(motionEvent.getAction()==MotionEvent.ACTION_UP){
+                if(motionEvent.getAction()==MotionEvent.ACTION_UP
+                        // 解决 MIUI 机型在长按超过一定时间后，抬起时传递
+                        // MotionEvent.ACTION_CANCEL 导致事件没有触发的问题
+                        || motionEvent.getAction() == MotionEvent.ACTION_CANCEL){
                     timer.cancel();
                     count++;
                     if (key == 1){
@@ -90,7 +93,7 @@ public class MainActivity extends Activity {
                     btn2.setBackground(getResources().getDrawable(R.drawable.btn_select));
                     btn2.setText("按下");
                     key = 0;
-
+                    
                 }else if(motionEvent.getAction()==MotionEvent.ACTION_DOWN){
                     if (key==0) {
                         btn2.setText("预备(按住)");
